@@ -1,0 +1,541 @@
+/* Reset CSS cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0; /* Để dễ nhìn header */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* TOP BAR */
+.top-bar {
+    background-color: rgba(0, 0, 0, 0.2); /* Nền tối mờ */
+    color: white;
+    padding: 8px 0;
+    font-size: 13px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+
+/* MAIN NAVIGATION */
+.main-nav {
+    background-color: transparent; /* Hoặc dùng dải gradient xanh đen */
+    padding: 40px 0 20px 0; /* Cách top bar bên trên */
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 8px;
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu li a:hover {
+    color: #ff7900; /* Màu cam FPT khi hover */
+}
+
+/* Responsive cơ bản */
+@media (max-width: 992px) {
+    .menu {
+        display: none; /* Ẩn menu trên mobile để dùng toggle sau */
+    }
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 500px; /* Chiều cao tối thiểu của banner */
+    
+    /* 1. Thêm ảnh nền */
+    /* THAY ĐỔI ĐƯỜNG DẪN 'your-image.jpg' THÀNH ẢNH CỦA BẠN */
+    background-image: url('public/Banner.png'); 
+    
+    /* 2. Cấu hình để ảnh nền đẹp nhất */
+    background-size: cover;      /* Ảnh phủ kín toàn bộ vùng chứa */
+    background-position: center; /* Ảnh được căn giữa */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+    
+    /* 3. Thêm lớp phủ (Overlay) màu xanh đậm FPT đè lên ảnh */
+    /* Gradient này chuyển từ màu xanh đậm hơn ở bên trái sang nhạt hơn một chút ở bên phải */
+    background-image: linear-gradient(to right, rgba(0, 31, 63, 0.289), rgba(0, 31, 63, 0.591)), 
+                      url('public/Banner.png');
+}
+
+/* Tùy chỉnh các khối nội dung */
+.info-block {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.sub-title {
+    color: #ff7900;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.main-title {
+    color: #00305b;
+    font-size: 24px;
+    margin: 10px 0 20px 0;
+    text-transform: uppercase;
+}
+
+.highlight-text {
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Hạng mục dự thi */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cat-item {
+    background: #f8f9fa;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+/* TIMELINE DESIGN */
+.timeline-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 40px;
+}
+
+/* Đường nối giữa các bước */
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #e0e0e0;
+    z-index: 1;
+}
+
+.timeline-step {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 23%;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: #00305b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-weight: bold;
+    border: 4px solid #fff;
+}
+
+.timeline-step:last-child .step-number {
+    background: #ff7900; /* Bước cuối nổi bật */
+}
+
+.step-content h4 {
+    font-size: 16px;
+    color: #00305b;
+}
+
+.step-content p {
+    font-size: 13px;
+    font-weight: bold;
+    color: #ff7900;
+}
+
+.step-content span {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Quyền lợi thí sinh */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.benefit-card {
+    background: #f0f4f8;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.benefit-card:hover {
+    background: #00305b;
+    color: white;
+    transform: translateY(-5px);
+}
+
+.benefit-card h4 {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .timeline-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .timeline-container::before {
+        display: none;
+    }
+    .timeline-step {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 15px;
+    }
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- CTA SECTION --- */
+.cta-section {
+    margin: 60px auto;
+    text-align: center;
+}
+
+.cta-wrapper {
+    background: linear-gradient(135deg, #00305b 0%, #004e92 100%);
+    padding: 50px 20px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 48, 91, 0.3);
+}
+
+.cta-wrapper h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.cta-wrapper p {
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn-main-register {
+    display: inline-block;
+    background-color: #ff7900; /* Màu cam FPT */
+    color: white;
+    padding: 18px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(255, 121, 0, 0.4);
+}
+
+.btn-main-register:hover {
+    transform: scale(1.05);
+    background-color: #e66d00;
+    box-shadow: 0 8px 25px rgba(255, 121, 0, 0.6);
+}
+
+/* --- FOOTER --- */
+.footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    padding: 60px 0 30px;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-info h3 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-info h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background-color: #ff7900;
+}
+
+.contact-item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-item i {
+    color: #ff7900;
+    width: 20px;
+}
+
+.contact-item a {
+    color: #ff7900;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.footer-logo {
+    text-align: right;
+}
+
+.footer-logo img {
+    height: 40px;
+    filter: brightness(0) invert(1); /* Làm logo thành màu trắng */
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    font-size: 13px;
+    color: #777;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-info h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .contact-item {
+        justify-content: center;
+    }
+    .footer-logo {
+        text-align: center;
+        width: 100%;
+        border-top: 1px solid #333;
+        padding-top: 20px;
+    }
+}
+/* Sidebar Layout */
+.sidebar {
+    flex: 0 0 350px; /* Độ rộng lý tưởng cho poster */
+    margin-left: 30px;
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 100px; /* Cách header một khoảng vừa đủ khi cuộn */
+    z-index: 100;
+}
+
+/* Ad Banner Card */
+.ad-banner {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(255, 0, 102, 0.15); /* Đổ bóng hơi hồng theo tone poster */
+    border: 1px solid #eee;
+    transition: all 0.4s ease;
+}
+
+.ad-banner:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 0, 102, 0.25);
+}
+
+/* Poster Image Container */
+.poster-container {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.poster-container img {
+    width: 100%;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.ad-banner:hover .poster-container img {
+    transform: scale(1.1) rotate(1deg); /* Hiệu ứng zoom nhẹ khi hover */
+}
+
+/* Shine Effect (Hiệu ứng quét sáng trên poster) */
+.shine-effect {
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+
+.ad-banner:hover .shine-effect {
+    left: 150%;
+}
+
+/* Content Area */
+.ad-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.event-date {
+    display: block;
+    color: #ff0066; /* Màu hồng neon từ poster */
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.ad-content h4 {
+    color: #00305b;
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.ad-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Button Neon Style */
+.btn-sidebar {
+    display: block;
+    background: linear-gradient(45deg, #ff0066, #ff7900); /* Gradient từ Hồng sang Cam */
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 0, 102, 0.3);
+}
+
+.btn-sidebar:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 6px 20px rgba(255, 0, 102, 0.5);
+    transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .sidebar {
+        flex: none;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 40px;
+    }
+    .sticky-sidebar {
+        position: static;
+    }
+}
+.white-logo {
+    /* Bước 1: Giảm độ sáng về 0 để ảnh thành màu đen */
+    /* Bước 2: Đảo ngược màu đen (invert) để thành màu trắng */
+    filter: brightness(0) invert(1);
+    
+    /* Giữ cho logo trông mượt mà hơn */
+    opacity: 1; 
+    height: 45px; /* Bạn có thể điều chỉnh lại kích thước cho khớp */
+}
